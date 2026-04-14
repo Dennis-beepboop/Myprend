@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jamaica L. Macasinag - Personal Profile</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #FFB6D9 0%, #FFC0CB 50%, #FFD1DC 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #FF69B4;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            font-size: 1rem;
+        }
+
+        nav a:hover {
+            color: #FFE4F0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+            overflow: hidden;
+        }
+
+        /* Header Section */
+        .header {
+            background: linear-gradient(135deg, #FFB6D9 0%, #FF69B4 100%);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid white;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Social Media Links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            border: 2px solid white;
+        }
+
+        .social-links a:hover {
+            background-color: white;
+            color: #FF69B4;
+            transform: scale(1.1);
+        }
+
+        /* Main Content */
+        main {
+            padding: 3rem 2rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            color: #FF69B4;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            border-bottom: 3px solid #FF69B4;
+            padding-bottom: 0.5rem;
+        }
+
+        /* About Section */
+        .about-content {
+            background-color: #FFF0F5;
+            padding: 1.5rem;
+            border-radius: 10px;
+            line-height: 1.8;
+        }
+
+        /* Skills Table */
+        .skills-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #FFF0F5;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skills-table thead {
+            background-color: #FF69B4;
+            color: white;
+        }
+
+        .skills-table th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .skills-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #FFD1DC;
+        }
+
+        .skills-table tbody tr:hover {
+            background-color: #FFE4F0;
+            transition: background-color 0.3s ease;
+        }
+
+        .skill-bar {
+            width: 100%;
+            height: 25px;
+            background-color: #FFD1DC;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #FFB6D9, #FF69B4);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Contact Form */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #FFD1DC;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #FF69B4;
+        }
+
+        .error {
+            color: #dc3545;
+            font-size: 0.85rem;
+            margin-top: 0.3rem;
+        }
+
+        .success {
+            color: #28a745;
+            font-size: 0.85rem;
+            margin-top: 0.3rem;
+        }
+
+        button {
+            background: linear-gradient(135deg, #FFB6D9 0%, #FF69B4 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .form-message {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .form-message.success {
+            background-color: #d4edda;
+            color: #155724;
+            display: block;
+        }
+
+        .form-message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #FF69B4;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            main {
+                padding: 1.5rem 1rem;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+            }
+
+            .social-links {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#profile">Profile</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header" id="profile">
+            <img src="jamaica.jfif" alt="Jamaica L. Macasinag" class="profile-pic">
+            <h1>Jamaica L. Macasinag</h1>
+            <p>BS Information Technology - 1st Year</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/share/18Z88QiZ2M/" target="_blank" title="Facebook">
+                    f
+                </a>
+                <a href="https://github.com/jlmacasinag-tech" target="_blank" title="GitHub">
+                    ⚙
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main>
+            <!-- About Section -->
+            <section id="about">
+                <h2>About Me</h2>
+                <div class="about-content">
+                    <p>
+                        Hello! I'm Jamaica L. Macasinag, and I'm 21 years old, a first-year BS Information Technology student. 
+                        I like reading manga, watching movies and anime, and I also like to go on nature trips. I love beaches 
+                        and hiking. I'm passionate about technology and eager to develop my skills in web development and 
+                        programming while enjoying the beautiful moments in life.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills">
+                <h2>Skills</h2>
+                <table class="skills-table">
+                    <thead>
+                        <tr>
+                            <th>Skill</th>
+                            <th>Proficiency</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Active Listening</td>
+                            <td>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%;">90%</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Written Communication</td>
+                            <td>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%;">85%</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>HTML</td>
+                            <td>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%;">85%</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>CSS</td>
+                            <td>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 80%;">80%</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Python</td>
+                            <td>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 75%;">75%</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact">
+                <h2>Contact Me</h2>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your full name" required>
+                        <div class="error" id="nameError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                        <div class="error" id="emailError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="Message subject" required>
+                        <div class="error" id="subjectError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Your message here..." required></textarea>
+                        <div class="error" id="messageError"></div>
+                    </div>
+
+                    <button type="submit">Send Message</button>
+                    <div class="form-message" id="formMessage"></div>
+                </form>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 Jamaica L. Macasinag | Email: jlmacasinag@gmail.com | BSIT-1X</p>
+        </footer>
+    </div>
+
+    <script>
+        const form = document.getElementById('contactForm');
+        const formMessage = document.getElementById('formMessage');
+
+        // Validation Rules
+        const validateName = (name) => {
+            if (!name || name.trim().length < 2) {
+                return 'Name must be at least 2 characters long';
+            }
+            if (!/^[a-zA-Z\s]+$/.test(name)) {
+                return 'Name can only contain letters and spaces';
+            }
+            return '';
+        };
+
+        const validateEmail = (email) => {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email) {
+                return 'Email is required';
+            }
+            if (!emailRegex.test(email)) {
+                return 'Please enter a valid email address';
+            }
+            return '';
+        };
+
+        const validateSubject = (subject) => {
+            if (!subject || subject.trim().length < 3) {
+                return 'Subject must be at least 3 characters long';
+            }
+            if (subject.trim().length > 100) {
+                return 'Subject cannot exceed 100 characters';
+            }
+            return '';
+        };
+
+        const validateMessage = (message) => {
+            if (!message || message.trim().length < 10) {
+                return 'Message must be at least 10 characters long';
+            }
+            if (message.trim().length > 1000) {
+                return 'Message cannot exceed 1000 characters';
+            }
+            return '';
+        };
+
+        // Clear error messages
+        const clearErrors = () => {
+            document.getElementById('nameError').textContent = '';
+            document.getElementById('emailError').textContent = '';
+            document.getElementById('subjectError').textContent = '';
+            document.getElementById('messageError').textContent = '';
+        };
+
+        // Display error
+        const displayError = (fieldId, message) => {
+            document.getElementById(fieldId).textContent = message;
+        };
+
+        // Form submission
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            clearErrors();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+
+            let isValid = true;
+
+            // Validate each field
+            const nameError = validateName(name);
+            if (nameError) {
+                displayError('nameError', nameError);
+                isValid = false;
+            }
+
+            const emailError = validateEmail(email);
+            if (emailError) {
+                displayError('emailError', emailError);
+                isValid = false;
+            }
+
+            const subjectError = validateSubject(subject);
+            if (subjectError) {
+                displayError('subjectError', subjectError);
+                isValid = false;
+            }
+
+            const messageError = validateMessage(message);
+            if (messageError) {
+                displayError('messageError', messageError);
+                isValid = false;
+            }
+
+            // If all fields are valid
+            if (isValid) {
+                formMessage.textContent = '✓ Message sent successfully! Thank you for reaching out.';
+                formMessage.className = 'form-message success';
+                form.reset();
+
+                // Clear success message after 3 seconds
+                setTimeout(() => {
+                    formMessage.className = 'form-message';
+                    formMessage.textContent = '';
+                }, 3000);
+            }
+        });
+
+        // Real-time validation
+        document.getElementById('name').addEventListener('blur', () => {
+            const error = validateName(document.getElementById('name').value);
+            displayError('nameError', error);
+        });
+
+        document.getElementById('email').addEventListener('blur', () => {
+            const error = validateEmail(document.getElementById('email').value);
+            displayError('emailError', error);
+        });
+
+        document.getElementById('subject').addEventListener('blur', () => {
+            const error = validateSubject(document.getElementById('subject').value);
+            displayError('subjectError', error);
+        });
+
+        document.getElementById('message').addEventListener('blur', () => {
+            const error = validateMessage(document.getElementById('message').value);
+            displayError('messageError', error);
+        });
+    </script>
+</body>
+</html>
